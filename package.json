@@ -1,0 +1,30 @@
+{
+  "name": "lambda-fb-sync",
+  "version": "1.0.0",
+  "description": "Exchanges short-lived token for long-lived one.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/setup.js test/**/*.spec.js",
+    "create:prod": "claudia create --name prod-fb-sync --region eu-west-1 --handler src/index.handler --role arn:aws:iam::351847414812:role/FacebookSync --config claudia-prod.json",
+    "deploy:prod": "claudia update --config claudia-prod.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muffin-rewards/lambda-fb-sync"
+  },
+  "author": {
+    "name": "Michael Bausano",
+    "email": "michael@getmuffin.co.uk"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@bausano/data-structures": "^1.0.1",
+    "awi": "^0.0.7",
+    "aws-sdk": "^2.414.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "claudia": "^5.4.0",
+    "mocha": "^6.0.2"
+  }
+}
