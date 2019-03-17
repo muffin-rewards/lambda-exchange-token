@@ -8,7 +8,8 @@ To deploy for production, run `npm run deploy:prod`.
 
 ### Environment variables
 - `BUCKET_NAME` where the credentials should be stored in.
-- `GRAPH_API_URL` endpoint where should be the handle retrieved from and the token exchanged at.
+- `APP_ID` is Instagram app id.
+- `APP_SECRET` is token associated with app.
 
 ## Request
 Request body should include stringified JSON of following format:

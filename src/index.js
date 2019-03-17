@@ -28,15 +28,15 @@ exports.handler = async (event, _, callback) => {
     /**
      * @var {string} longToken Long-live access token
      */
-    const longToken = exchangeTokens(id, token)
+    const longToken = await exchangeTokens(token)
 
     /**
      * @var {string} handle User Instagram handle
      */
-    const handle = fetchHandle(id, longToken)
+    const handle = await fetchHandle(id, longToken)
 
     // Saves promoter data into an S3 bucket.
-    savePromoter(id, handle, longToken)
+    await savePromoter(id, handle, longToken)
 
     respond(200)
   } catch (error) {
