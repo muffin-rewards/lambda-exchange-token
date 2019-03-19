@@ -1,4 +1,3 @@
-const { fetchHandle } = require('./fetchHandle')
 const { savePromoter } = require('./savePromoter')
 const { exchangeTokens } = require('./exchangeTokens')
 
@@ -23,17 +22,12 @@ exports.handler = async (event, _, callback) => {
      * @var {string} id User Facebook id
      * @var {string} token Short-live access token
      */
-    const { id, token } = JSON.parse(event.body)
+    const { id, handle, token } = JSON.parse(event.body)
 
     /**
      * @var {string} longToken Long-live access token
      */
     const longToken = await exchangeTokens(token)
-
-    /**
-     * @var {string} handle User Instagram handle
-     */
-    const handle = await fetchHandle(id, longToken)
 
     // Saves promoter data into an S3 bucket.
     await savePromoter(id, handle, longToken)

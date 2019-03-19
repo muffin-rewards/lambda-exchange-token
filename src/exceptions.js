@@ -20,18 +20,8 @@ exports.ExchangeTokensException = class ExchangeTokensException extends LambdaEx
    * @constructor
    */
   constructor () {
-    super('ExchangeTokensException', 500)
+    super('ExchangeTokensException', 400)
   }
 
 }
 
-exports.FetchHandleException = class FetchHandleException extends LambdaException {
-
-  /**
-   * @constructor
-   */
-  constructor () {
-    super('FetchHandleException', 500)
-  }
-
-}
