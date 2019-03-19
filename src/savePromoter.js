@@ -14,7 +14,7 @@ AWS.config.update({ region: 'eu-west-1' })
 exports.savePromoter = async (id, handle, token) => {
   return ddb.updateItem({
     Key: {
-      promoter: { S: handle },
+      handle: { S: handle },
     },
     ExpressionAttributeValues: {
       ':id': { S: id },
